@@ -23,13 +23,9 @@
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/daterangepicker.min.css" />
     <style>
         .main-container,
-        .page-content {
+        .page-content,
+        .main-container:before {
             background-color: lightgray;
-        }
-
-        .form-content {
-            background-color: white;
-            padding: 1rem;
         }
 
         .table-content {
@@ -39,106 +35,10 @@
 
         }
 
-        hr {
-            margin-top: 0px;
-            margin-bottom: 10px;
-        }
-
-        .mb-10 {
-            margin-bottom: 20px;
-        }
-
-        .mb-5 {
-            margin-bottom: 10px;
-        }
-
-        .col-xs-1.angket {
-            width: 0%;
-        }
-
-        .pertanyaan {
-            font-size: 14px;
-        }
-
-        .offset-3 {
-            margin-left: 6%;
-        }
-
-        .offset-12 {
-            margin-left: 12%;
-        }
-
-        textarea {
-            width: 80% !important;
-        }
-
-        .mt-20 {
-            margin-top: 20px;
-        }
-
-        .mt-50 {
-            margin-top: 50px;
-        }
-
-        .mb-50 {
-            margin-bottom: 50px;
-        }
-
-        .kepuasan {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-radius: 10%;
-        }
-
-        .text-kepuasan {
-            padding-top: 10px;
-        }
-
-        .kepuasan.sangat-puas:hover {
-            background-color: limegreen;
-        }
-
-        .kepuasan.sangat-puas.active {
-            background-color: limegreen;
-        }
-
-        .kepuasan.cukup-puas:hover {
-            background-color: yellow;
-        }
-
-        .kepuasan.cukup-puas.active {
-            background-color: yellow;
-        }
-
-        .kepuasan.tidak-puas:hover {
-            background-color: salmon;
-        }
-
-        .kepuasan.tidak-puas.active {
-            background-color: salmon;
-        }
-
-        .saran {
-            padding-top: 10px;
-            border-radius: 10%;
-        }
-
-        .padd {
-            padding-top: 4rem;
-        }
-
-        .container-chart {
-            display: block;
-            margin: 0 auto;
-        }
-
-        .radio-kepuasan {
-            position: absolute;
-            left: -9999px;
-        }
-
-        .parent-kepuasan * {
-            cursor: pointer;
+        .footer .footer-inner .footer-content {
+            background-color: white !important;
+            left: 0px !important;
+            right: 0px !important;
         }
     </style>
 </head>

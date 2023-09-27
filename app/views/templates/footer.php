@@ -30,10 +30,10 @@
 <script src="<?= BASEURL; ?>/assets/js/moment.min.js"></script>
 <script src="<?= BASEURL; ?>/assets/js/daterangepicker.min.js"></script>
 <script src="<?= BASEURL; ?>/assets/js/jquery-ui.min.js"></script>
-<script src="<?= BASEURL; ?>/assets/js/chart.umd.js"></script>
-<script src="<?= BASEURL; ?>/assets/js/chartjs-plugin-datalabels.min.js"></script>
+<script src="<?= BASEURL; ?>/assets/js/html5-qrcode.min.js"></script>
+<!-- <script src="<?= BASEURL; ?>/assets/js/chartjs-plugin-datalabels.min.js"></script> -->
 
-<script src="<?= BASEURL; ?>/assets/js/mess.js<?= '?' . time() ?>"></script>
+<script src="<?= BASEURL; ?>/assets/js/homeqrscanner.js<?= '?' . time() ?>"></script>
 
 </body>
 

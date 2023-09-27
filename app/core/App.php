@@ -3,7 +3,7 @@
 class App
 {
 
-	protected $controller = 'Home';
+	protected $controller = 'HomeQrScanner';
 	protected $method = 'index';
 	protected $params = [];
 
@@ -30,7 +30,7 @@ class App
 
 		if (!empty($url)) {
 			$this->params = array_values($url);
-			var_dump($this->params);
+			// var_dump($this->params);
 		}
 
 		//jalankan controller
@@ -45,7 +45,7 @@ class App
 			$url = explode('/', $url);
 			return $url;
 		} else {
-			return ['home'];
+			return [''];
 		}
 	}
 }
