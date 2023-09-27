@@ -40,6 +40,10 @@
             left: 0px !important;
             right: 0px !important;
         }
+
+        .mb-5 {
+            margin-bottom: 5rem;
+        }
     </style>
 </head>
 
