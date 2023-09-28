@@ -15,13 +15,34 @@ window.onload = () => {
   // );
   // html5QrcodeScanner.render(onScanSuccess, onScanFailure);
 
+  $("#loadbtn").on("click", function () {
+    let data = {};
+    data.koderumah = $("#kodePerumahan").val();
+    data.nopintu = $("#noPintu").val();
+
+    getDataPenghuni(data);
+  });
+
   const html5QrCode = new Html5Qrcode("reader");
   const qrCodeSuccessCallback = (decodedText, decodedResult) => {
     /* handle success */
-    console.log(decodedText, decodedResult);
+    let data = {};
+    const result = decodedResult.split("-");
+    $("#kodePerumahan").val(result[0]);
+    data.koderumah = result[0];
+
+    if (result.length > 1) {
+      $("#noPintu").val(result[1]);
+      data.nopintu = result[1];
+
+      getDataPenghuni(data);
+    }
+
+    $("#modalScanner").modal("hide");
   };
+
   const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-  // Select back camera or fail with `OverconstrainedError`.
+
   $("#btnScan").on("click", function () {
     html5QrCode.start(
       { facingMode: { exact: "environment" } },
@@ -40,4 +61,28 @@ window.onload = () => {
         // Stop failed, handle it.
       });
   });
+
+  function renderCardPenghuni(data) {}
+
+  function getDataPenghuni(data, renderCallback = null) {
+    alert("test " + data);
+
+    const baseUrl = document.querySelector("meta[name='baseURL']").content;
+
+    $.ajax({
+      url:
+        baseUrl +
+        "/homeqrscanner/report?koderumah=" +
+        data.koderumah +
+        "&nopintu=" +
+        data.nopintu,
+      type: "get",
+      success: function (results) {
+        // const data = JSON.parse(results);
+        // const dataSurvey = data.data;
+        // renderAllChart(dataSurvey);
+        // console.log(dataSurvey);
+      },
+    });
+  }
 };
