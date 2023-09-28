@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>Survey Kepuasan Tamu Mess</title>
+    <title>Scan Data Perumahan</title>
 
     <meta name="description" content="overview &amp; stats" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -46,6 +46,14 @@
 
         .mb-5 {
             margin-bottom: 5rem;
+        }
+
+        .mt-5 {
+            margin-top: 5rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 3rem;
         }
     </style>
 </head>
