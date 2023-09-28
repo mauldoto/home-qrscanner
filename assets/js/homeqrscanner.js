@@ -78,7 +78,7 @@ window.onload = () => {
       success: function (results) {
         const data = JSON.parse(results);
         const dataPenghuni = data.data;
-        renderAllChart(dataPenghuni);
+        renderCardPenghuni(dataPenghuni);
         // console.log(dataSurvey);
       },
     });
