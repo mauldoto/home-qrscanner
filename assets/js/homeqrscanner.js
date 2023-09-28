@@ -65,6 +65,11 @@ window.onload = () => {
   function getDataPenghuni(data, renderCallback = null) {
     $(".table-section").html("");
 
+    if (!data.koderumah || !data.nopintu) {
+      alert("Mohon lengkapi inputan!!");
+      return;
+    }
+
     const baseUrl = document.querySelector("meta[name='baseURL']").content;
 
     $.ajax({
