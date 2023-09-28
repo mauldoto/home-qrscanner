@@ -63,7 +63,7 @@ window.onload = () => {
   });
 
   function getDataPenghuni(data, renderCallback = null) {
-    alert("test " + data);
+    $(".table-section").html("");
 
     const baseUrl = document.querySelector("meta[name='baseURL']").content;
 
