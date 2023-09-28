@@ -5,7 +5,7 @@
 </div>
 </div><!-- /.main-content -->
 
-<div class="footer">
+<!-- <div class="footer">
   <div class="footer-inner">
     <div class="footer-content">
       <span class="bigger-120">
@@ -16,11 +16,8 @@
       &nbsp; &nbsp;
     </div>
   </div>
-</div>
+</div> -->
 
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-  <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-</a>
 </div>
 <script src="<?= BASEURL; ?>/assets/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
@@ -31,7 +28,6 @@
 <script src="<?= BASEURL; ?>/assets/js/daterangepicker.min.js"></script>
 <script src="<?= BASEURL; ?>/assets/js/jquery-ui.min.js"></script>
 <script src="<?= BASEURL; ?>/assets/js/html5-qrcode.min.js"></script>
-<!-- <script src="<?= BASEURL; ?>/assets/js/chartjs-plugin-datalabels.min.js"></script> -->
 
 <script src="<?= BASEURL; ?>/assets/js/homeqrscanner.js<?= '?' . time() ?>"></script>
 

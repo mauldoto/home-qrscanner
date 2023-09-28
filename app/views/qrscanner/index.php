@@ -13,11 +13,13 @@
                 <h4>Report Kepuasan Tamu</h4>
             </div>
             <div class="col-xs-12 text-center mb-10">
-                <div id="reader" class="mb-5" width="600px"></div>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">Kode Rumah</div>
                         <input type="text" class="form-control" id="kodePerumahan" placeholder="Kode Perumahan">
+                        <span class="input-group-btn">
+                            <button id="btnScan" class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalScanner">Scan</button>
+                        </span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -28,7 +30,25 @@
                 </div>
                 <button class="col-xs-12 btn btn-success" id="loadbtn">Load</button>
             </div>
+        </section>
 
+        <section>
+            <div class="modal fade" id="modalScanner" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div id="reader" class="mb-5" width="600px"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
         </section>
 
         <section class="table-section">

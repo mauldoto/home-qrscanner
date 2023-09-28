@@ -13,18 +13,16 @@
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/ui.jqgrid.min.css" />
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/jquery-ui.min.css" />
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/fonts.googleapis.com.css" />
-    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <!-- <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" /> -->
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/ace-skins.min.css" />
-    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/ace-rtl.min.css" />
-    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/select2.min.css" />
-    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/daterangepicker.min.css" />
     <style>
+        html,
         .main-container,
         .page-content,
-        .main-container:before {
+        .main-container,
+        .container {
             background-color: lightgray;
         }
 
@@ -39,6 +37,11 @@
             background-color: white !important;
             left: 0px !important;
             right: 0px !important;
+            position: absolute;
+            bottom: 4px;
+            padding: 8px;
+            line-height: 36px;
+            border-top: 3px double #E5E5E5;
         }
 
         .mb-5 {
@@ -47,9 +50,9 @@
     </style>
 </head>
 
-<body class="skin-1">
+<body class="">
 
-    <div class="main-container ace-save-state" id="main-container">
+    <div class="container" id="main-container">
 
         <div class="main-content">
             <div class="main-content-inner">
