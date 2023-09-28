@@ -13,7 +13,7 @@ class HomeQrScannerModel
 
     public function getPenghuniRumah($data)
     {
-        $kodeRumah = explode("=", $data[0])[1];
+        $kodeRumah = strtoupper(explode("=", $data[0])[1]);
         $noPintu = explode("=", $data[1])[1];
 
         $query = "select 

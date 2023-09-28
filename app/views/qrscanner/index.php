@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">No Pintu</div>
-                        <input type="text" class="form-control" id="noPintu" placeholder="No Pintu Perumahan">
+                        <input type="number" class="form-control" id="noPintu" placeholder="No Pintu Perumahan">
                     </div>
                 </div>
                 <button class="col-xs-12 btn btn-success" id="loadbtn">Load</button>
