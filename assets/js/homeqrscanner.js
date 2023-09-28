@@ -85,13 +85,13 @@ window.onload = () => {
   }
 
   function renderCardPenghuni(data) {
-    let htmlFinal = `
+    for (const detail of data) {
+      let htmlFinal = `
       <div class="col-xs-12 card-penghuni">
       <hr>
       <table style="width: 100%;">
       <tbody>`;
 
-    for (const detail of data) {
       htmlFinal += `
         <tr>
         <td style="width: 25%;"><strong>Kode Rumah</strong></td>
@@ -132,7 +132,7 @@ window.onload = () => {
         </tbody>
         </table>
         <div class="text-center">
-        <img id="imgInduk" src="${detail.FOTO}" alt="foto-${detail.INDUK_NIK}" style="width: 100px;height: 150px;">
+        <img id="imgInduk" src="${detail.FOTO1}" alt="foto-${detail.INDUK_NIK}" style="width: 100px;height: 150px;">
         </div>
         <hr>
         <table class="table table-bordered">
