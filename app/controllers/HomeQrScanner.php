@@ -35,11 +35,11 @@ class HomeQrScanner extends Controller
         $dataFull = explode('?', $_SERVER['REQUEST_URI']);
         $shorterData = explode('&', $dataFull[1]);
 
-        $results = $this->model('HomeQrScanner')->getPenghuniRumah($shorterData);
+        $results = $this->model('HomeQrScannerModel')->getPenghuniRumah($shorterData);
         foreach ($results as $key => $detail) {
-            $detail['details'] = $this->model('HomeQrScanner')->getDetailPenghuni([$detail['KODERUMAH'], $detail['NOPINTU']]);
+            $results[$key]['details'] = $this->model('HomeQrScannerModel')->getDetailPenghuni([$detail['KODERUMAH'], $detail['INDUK_NIK']]);
         }
 
-        echo json_encode(["data" => $data]);
+        echo json_encode(["data" => $results]);
     }
 }
