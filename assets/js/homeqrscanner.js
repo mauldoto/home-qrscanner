@@ -3,13 +3,11 @@ window.onload = () => {
   //   // handle the scanned code as you like, for example:
   //   console.log(`Code matched = ${decodedText}`, decodedResult);
   // }
-
   // function onScanFailure(error) {
   //   // handle scan failure, usually better to ignore and keep scanning.
   //   // for example:
   //   console.warn(`Code scan error = ${error}`);
   // }
-
   // let html5QrcodeScanner = new Html5QrcodeScanner(
   //   "reader",
   //   { fps: 10, qrbox: { width: 250, height: 250 } },
@@ -23,11 +21,23 @@ window.onload = () => {
     console.log(decodedText, decodedResult);
   };
   const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-
   // Select back camera or fail with `OverconstrainedError`.
-  html5QrCode.start(
-    { facingMode: { exact: "environment" } },
-    config,
-    qrCodeSuccessCallback
-  );
+  $("#btnScan").on("click", function () {
+    html5QrCode.start(
+      { facingMode: { exact: "environment" } },
+      config,
+      qrCodeSuccessCallback
+    );
+  });
+
+  $("#modalScanner").on("hide.bs.modal", function (e) {
+    html5QrCode
+      .stop()
+      .then((ignore) => {
+        // QR Code scanning is stopped.
+      })
+      .catch((err) => {
+        // Stop failed, handle it.
+      });
+  });
 };
