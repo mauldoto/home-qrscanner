@@ -44,6 +44,10 @@
             border-top: 3px double #E5E5E5;
         }
 
+        .d-none {
+            display: none;
+        }
+
         .mb-5 {
             margin-bottom: 5rem;
         }

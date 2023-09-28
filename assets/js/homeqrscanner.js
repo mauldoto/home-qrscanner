@@ -62,8 +62,6 @@ window.onload = () => {
       });
   });
 
-  function renderCardPenghuni(data) {}
-
   function getDataPenghuni(data, renderCallback = null) {
     alert("test " + data);
 
@@ -78,11 +76,90 @@ window.onload = () => {
         data.nopintu,
       type: "get",
       success: function (results) {
-        // const data = JSON.parse(results);
-        // const dataSurvey = data.data;
-        // renderAllChart(dataSurvey);
+        const data = JSON.parse(results);
+        const dataPenghuni = data.data;
+        renderAllChart(dataPenghuni);
         // console.log(dataSurvey);
       },
     });
+  }
+
+  function renderCardPenghuni(data) {
+    let htmlFinal = `
+      <div class="col-xs-12 card-penghuni">
+      <hr>
+      <table style="width: 100%;">
+      <tbody>`;
+
+    for (const detail of data) {
+      htmlFinal += `
+        <tr>
+        <td style="width: 25%;"><strong>Kode Rumah</strong></td>
+        <td>:</td>
+        <td style="width: 60%;" id="tdKodeRumah">${detail.KODERUMAH}</td>
+        </tr>
+        <tr>`;
+
+      htmlFinal += `
+        <tr>
+        <td style="width: 25%;"><strong>No Pintu</strong></td>
+        <td>:</td>
+        <td style="width: 70%;" id="tdNoPintu">${detail.NOPINTU}</td>
+        </tr>`;
+
+      htmlFinal += `
+        <tr>
+        <td style="width: 25%;"><strong>NIK</strong></td>
+        <td>:</td>
+        <td style="width: 70%;" id="tdNIK">${detail.INDUK_NIK}</td>
+        </tr>`;
+
+      htmlFinal += `
+        <tr>
+        <td style="width: 25%;"><strong>Nama</strong></td>
+        <td>:</td>
+        <td style="width: 70%;" id="tdNama">${detail.INDUK_NAME}</td>
+        </tr>`;
+
+      htmlFinal += `
+        <tr>
+        <td style="width: 25%;"><strong>Jabatan</strong></td>
+        <td>:</td>
+        <td style="width: 70%;" id="tdJabatan">${detail.INDUK_JABATAN}</td>
+        </tr>`;
+
+      htmlFinal += `
+        </tbody>
+        </table>
+        <div class="text-center">
+        <img id="imgInduk" src="${detail.FOTO}" alt="foto-${detail.INDUK_NIK}" style="width: 100px;height: 150px;">
+        </div>
+        <hr>
+        <table class="table table-bordered">
+        <thead>
+        <th>Nama</th>
+        <th>Jenis Kelamin</th>
+        <th>Keterangan</th>
+        <th>Umur</th>
+        </thead>
+        <tbody class="detailKeluarga">`;
+
+      for (const subdetail of detail.details) {
+        htmlFinal += `
+          <tr>
+            <td>${subdetail.FAMILY_NAME}</td>
+            <td>${subdetail.JENKEL}</td>
+            <td>${subdetail.KET}</td>
+            <td>${subdetail.UMUR}</td>
+          </tr>`;
+      }
+
+      htmlFinal += `
+        </tbody>
+        </table>
+        </div>`;
+    }
+
+    $(".table-section").append(htmlFinal);
   }
 };
