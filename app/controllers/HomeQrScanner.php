@@ -40,6 +40,6 @@ class HomeQrScanner extends Controller
             $detail['details'] = $this->model('HomeQrScanner')->getDetailPenghuni([$detail['KODERUMAH'], $detail['NOPINTU']]);
         }
 
-        // echo json_encode(["data" => $data]);
+        echo json_encode(["data" => $data]);
     }
 }
