@@ -85,18 +85,19 @@ window.onload = () => {
   }
 
   function renderCardPenghuni(data) {
+    let htmlFinal = "";
     for (const detail of data) {
-      let htmlFinal = `
+      htmlFinal += `
       <div class="col-xs-12 card-penghuni">
       <hr>
-      <table style="width: 100%;">
+      <table style="width: 100%;" class="mb-3">
       <tbody>`;
 
       htmlFinal += `
         <tr>
         <td style="width: 25%;"><strong>Kode Rumah</strong></td>
         <td>:</td>
-        <td style="width: 60%;" id="tdKodeRumah">${detail.KODERUMAH}</td>
+        <td style="width: 60%;" id="tdKodeRumah">${detail.KODERUMAH} - ${detail.NAMARUMAH}</td>
         </tr>
         <tr>`;
 
