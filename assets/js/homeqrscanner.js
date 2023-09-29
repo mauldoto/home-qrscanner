@@ -27,7 +27,7 @@ window.onload = () => {
   const qrCodeSuccessCallback = (decodedText, decodedResult) => {
     /* handle success */
     let data = {};
-    const result = decodedResult.split("-");
+    const result = decodedText.split("-");
     $("#kodePerumahan").val(result[0]);
     data.koderumah = result[0];
 
@@ -45,7 +45,7 @@ window.onload = () => {
 
   $("#btnScan").on("click", function () {
     html5QrCode.start(
-      { facingMode: { exact: "environment" } },
+      { facingMode: "environment" },
       config,
       qrCodeSuccessCallback
     );
