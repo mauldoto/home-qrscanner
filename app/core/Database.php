@@ -12,86 +12,91 @@ class Database
 
 	public function __construct()
 	{
-		$tsn = 'oci:dbname=//' . $this->host . '/' . $this->service;
+		// $tsn = 'oci:dbname=//' . $this->host . '/' . $this->service;
 
-		$option = [
-			PDO::ATTR_PERSISTENT => true,
-			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-		];
+		// $option = [
+		// 	PDO::ATTR_PERSISTENT => true,
+		// 	PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+		// ];
 
-		try {
-			$this->dbh = new PDO($tsn, $this->user, $this->pass, $option);
-		} catch (PDOException $e) {
-			die($e->getMessage());
-		}
+		// try {
+		// 	$this->dbh = new PDO($tsn, $this->user, $this->pass, $option);
+		// } catch (PDOException $e) {
+		// 	die($e->getMessage());
+		// }
+		$this->conn('Oci');
 	}
 
-
-	public function query($query)
+	public function conn($database)
 	{
-		$this->stmt = $this->dbh->prepare($query);
+		require_once 'app/databases/' . $database . '.php';
 	}
 
-	public function bind($param, $value, $type = null)
-	{
-		if (is_null($type)) {
-			switch (true) {
-				case is_int($value):
-					$type = PDO::PARAM_INT;
-					break;
-				case is_bool($value):
-					$type = PDO::PARAM_BOOL;
-					break;
-				case is_null($value):
-					$type = PDO::PARAM_NULL;
-					break;
-				default:
-					$type = PDO::PARAM_STR;
-			}
-		}
+	// public function query($query)
+	// {
+	// 	$this->stmt = $this->dbh->prepare($query);
+	// }
 
-		$this->stmt->bindValue($param, $value, $type);
-	}
+	// public function bind($param, $value, $type = null)
+	// {
+	// 	if (is_null($type)) {
+	// 		switch (true) {
+	// 			case is_int($value):
+	// 				$type = PDO::PARAM_INT;
+	// 				break;
+	// 			case is_bool($value):
+	// 				$type = PDO::PARAM_BOOL;
+	// 				break;
+	// 			case is_null($value):
+	// 				$type = PDO::PARAM_NULL;
+	// 				break;
+	// 			default:
+	// 				$type = PDO::PARAM_STR;
+	// 		}
+	// 	}
 
-	public function execute()
-	{
-		$this->stmt->execute();
-	}
+	// 	$this->stmt->bindValue($param, $value, $type);
+	// }
 
-	public function executeOracle($data)
-	{
-		$this->stmt->execute($data);
-	}
+	// public function execute()
+	// {
+	// 	$this->stmt->execute();
+	// }
 
-	public function resultSet()
-	{
-		$this->execute();
-		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
-	}
+	// public function executeOracle($data)
+	// {
+	// 	$this->stmt->execute($data);
+	// }
 
-	public function single()
-	{
-		$this->execute();
-		return $this->stmt->fetch(PDO::FETCH_ASSOC);
-	}
+	// public function resultSet()
+	// {
+	// 	$this->execute();
+	// 	return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+	// }
 
-	public function rowCount()
-	{
-		return $this->stmt->rowCount();
-	}
+	// public function single()
+	// {
+	// 	$this->execute();
+	// 	return $this->stmt->fetch(PDO::FETCH_ASSOC);
+	// }
 
-	public function beginTransaction()
-	{
-		return $this->dbh->beginTransaction();
-	}
+	// public function rowCount()
+	// {
+	// 	return $this->stmt->rowCount();
+	// }
 
-	public function rollback()
-	{
-		return $this->dbh->rollBack();
-	}
+	// public function beginTransaction()
+	// {
+	// 	return $this->dbh->beginTransaction();
+	// }
 
-	public function commit()
-	{
-		return $this->dbh->commit();
-	}
+	// public function rollback()
+	// {
+	// 	return $this->dbh->rollBack();
+	// }
+
+	// public function commit()
+	// {
+	// 	return $this->dbh->commit();
+	// }
 }
