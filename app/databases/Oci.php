@@ -2,29 +2,20 @@
 
 class Oci extends Database
 {
-    private $host = DB_HOST;
-    private $user = DB_USER;
-    private $pass = DB_PASS;
-    private $service = DB_SERVICE;
-
-    private $dbh;
-    private $stmt;
-
     public function __construct()
     {
-        // try {
-        //     $this->dbh = oci_connect($this->user, $this->pass, $this->host . '/' . $this->service);
-        // } catch (\Throwable $e) {
-        //     $msg = oci_error();
-        //     die($e->getMessage());
-        // }
+        try {
+            $this->dbh = oci_connect($this->user, $this->pass, $this->host . '/' . $this->service);
+        } catch (\Throwable $e) {
+            $msg = oci_error();
+            die($e->getMessage());
+        }
 
-        // oci_set_client_info($this->dbh, 'Administrator');
-        die("tessss");
+        oci_set_client_info($this->dbh, 'Administrator');
+        // die("tessss");
         // // oci_set_module_name($this->dbh, 'Administrator');
         // // oci_set_client_info($this->dbh, 'Administrator');
     }
-
 
     public function query($query)
     {

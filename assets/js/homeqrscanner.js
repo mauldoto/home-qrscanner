@@ -81,7 +81,9 @@ window.onload = () => {
         data.nopintu,
       type: "get",
       success: function (results) {
+        console.log(results);
         const data = JSON.parse(results);
+        console.log(data);
         const dataPenghuni = data.data;
         renderCardPenghuni(dataPenghuni);
         // console.log(dataSurvey);
@@ -138,7 +140,7 @@ window.onload = () => {
         </tbody>
         </table>
         <div class="text-center">
-        <img id="imgInduk" src="${detail.FOTO1}" alt="foto-${detail.INDUK_NIK}" style="width: 100px;height: 150px;">
+        <img id="imgInduk" src="${detail.FOTO}" alt="foto-${detail.INDUK_NIK}" style="width: 100px;height: 150px;">
         </div>
         <hr>
         <table class="table table-bordered">
@@ -147,6 +149,7 @@ window.onload = () => {
         <th>Jenis Kelamin</th>
         <th>Keterangan</th>
         <th>Umur</th>
+        <th>Tinggal</th>
         </thead>
         <tbody class="detailKeluarga">`;
 
@@ -157,6 +160,7 @@ window.onload = () => {
             <td>${subdetail.JENKEL}</td>
             <td>${subdetail.KET}</td>
             <td>${subdetail.UMUR}</td>
+            <td>${subdetail.TINGGAL}</td>
           </tr>`;
       }
 
