@@ -21,12 +21,12 @@ class HomeQrScanner extends Controller
             $results[$key]['details'] = $this->model('HomeQrScannerModel')->getDetailPenghuni([$detail['KODERUMAH'], $detail['INDUK_NIK']]);
 
             // var_dump($detail['KODERUMAH']);
-            $path = $detail['FOTO1'];
-            $type = pathinfo($path, PATHINFO_EXTENSION);
-            $data = file_get_contents($path);
-            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+            // $path = $detail['FOTO1'];
+            // $type = pathinfo($path, PATHINFO_EXTENSION);
+            // $data = file_get_contents($path);
+            // $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
 
-            $results[$key]['FOTO'] = $base64;
+            // $results[$key]['FOTO'] = $base64;
         }
 
         echo json_encode(["data" => $results]);
