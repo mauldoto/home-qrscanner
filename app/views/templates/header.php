@@ -59,6 +59,11 @@
         .mb-3 {
             margin-bottom: 3rem;
         }
+
+        .footer-content {
+            font-size: 12px;
+            color: grey;
+        }
     </style>
 </head>
 
