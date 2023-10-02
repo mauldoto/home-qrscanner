@@ -71,11 +71,10 @@ window.onload = () => {
     }
 
     const baseUrl = document.querySelector("meta[name='baseURL']").content;
-
     $.ajax({
       url:
         baseUrl +
-        "/homeqrscanner/report?koderumah=" +
+        "homeqrscanner/report?koderumah=" +
         data.koderumah +
         "&nopintu=" +
         data.nopintu,
@@ -143,8 +142,8 @@ window.onload = () => {
         <table class="table table-bordered">
         <thead>
         <th>Nama</th>
-        <th>Jenis Kelamin</th>
-        <th>Keterangan</th>
+        <th>JK</th>
+        <th>Ket</th>
         <th>Umur</th>
         <th>Tinggal</th>
         </thead>

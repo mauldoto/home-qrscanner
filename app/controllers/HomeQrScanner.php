@@ -21,7 +21,7 @@ class HomeQrScanner extends Controller
             $results[$key]['details'] = $this->model('HomeQrScannerModel')->getDetailPenghuni([$detail['KODERUMAH'], $detail['INDUK_NIK']]);
             $foto = explode('\\', $results[$key]['FOTO1']);
 
-            $results[$key]['FOTO'] = BASEURL . ASSETS_URL . '/' . end($foto);
+            $results[$key]['FOTO'] = ASSETS_URL . '/' . end($foto);
         }
 
         echo json_encode(["data" => $results]);
