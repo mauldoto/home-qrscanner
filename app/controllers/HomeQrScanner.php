@@ -19,14 +19,9 @@ class HomeQrScanner extends Controller
 
         foreach ($results as $key => $detail) {
             $results[$key]['details'] = $this->model('HomeQrScannerModel')->getDetailPenghuni([$detail['KODERUMAH'], $detail['INDUK_NIK']]);
+            $foto = explode('\\', $results[$key]['FOTO1']);
 
-            // var_dump($detail['KODERUMAH']);
-            // $path = $detail['FOTO1'];
-            // $type = pathinfo($path, PATHINFO_EXTENSION);
-            // $data = file_get_contents($path);
-            // $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-
-            // $results[$key]['FOTO'] = $base64;
+            $results[$key]['FOTO'] = BASEURL . ASSETS_URL . '/' . end($foto);
         }
 
         echo json_encode(["data" => $results]);

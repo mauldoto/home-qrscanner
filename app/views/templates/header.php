@@ -19,11 +19,12 @@
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/ace-skins.min.css" />
     <style>
         html,
+        body,
         .main-container,
         .page-content,
         .main-container,
         .container {
-            background-color: lightgray;
+            background-color: lightgray !important;
         }
 
         .table-content {
@@ -31,6 +32,21 @@
             padding: 1rem;
             background-color: white;
 
+        }
+
+        .footer {
+            padding-top: 75px;
+            height: 0;
+            width: 0;
+        }
+
+        .footer .footer-inner {
+            text-align: center;
+            position: absolute;
+            z-index: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
 
         .footer .footer-inner .footer-content {
