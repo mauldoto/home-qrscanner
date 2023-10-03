@@ -5,7 +5,7 @@
 </div>
 </div><!-- /.main-content -->
 
-<!-- <div class="footer">
+<div class="footer">
   <div class="footer-inner">
     <div class="footer-content text-center">
       <span class="bigger-120">
@@ -16,7 +16,7 @@
       &nbsp; &nbsp;
     </div>
   </div>
-</div> -->
+</div>
 
 </div>
 <script src="assets/js/jquery-2.1.4.min.js"></script>
