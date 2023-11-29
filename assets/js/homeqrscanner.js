@@ -74,7 +74,7 @@ window.onload = () => {
     $.ajax({
       url:
         baseUrl +
-        "/report?koderumah=" +
+        "/homeqrscanner/report?koderumah=" +
         data.koderumah +
         "&nopintu=" +
         data.nopintu,
