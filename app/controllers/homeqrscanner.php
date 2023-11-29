@@ -1,6 +1,6 @@
 <?php
 
-class HomeQrScanner extends Controller
+class homeqrscanner extends Controller
 {
     public function index()
     {
