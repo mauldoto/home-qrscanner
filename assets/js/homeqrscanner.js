@@ -71,11 +71,10 @@ window.onload = () => {
     }
 
     const baseUrl = document.querySelector("meta[name='baseURL']").content;
-
     $.ajax({
       url:
         baseUrl +
-        "/homeqrscanner/report?koderumah=" +
+        "homeqrscanner/report?koderumah=" +
         data.koderumah +
         "&nopintu=" +
         data.nopintu,
@@ -84,7 +83,6 @@ window.onload = () => {
         const data = JSON.parse(results);
         const dataPenghuni = data.data;
         renderCardPenghuni(dataPenghuni);
-        // console.log(dataSurvey);
       },
     });
   }
@@ -138,15 +136,16 @@ window.onload = () => {
         </tbody>
         </table>
         <div class="text-center">
-        <img id="imgInduk" src="${detail.FOTO1}" alt="foto-${detail.INDUK_NIK}" style="width: 100px;height: 150px;">
+        <img id="imgInduk" src="${detail.FOTO}" alt="foto-${detail.INDUK_NIK}" style="width: 100px;height: 150px;">
         </div>
         <hr>
         <table class="table table-bordered">
         <thead>
         <th>Nama</th>
-        <th>Jenis Kelamin</th>
-        <th>Keterangan</th>
+        <th>JK</th>
+        <th>Ket</th>
         <th>Umur</th>
+        <th>Tinggal</th>
         </thead>
         <tbody class="detailKeluarga">`;
 
@@ -157,6 +156,7 @@ window.onload = () => {
             <td>${subdetail.JENKEL}</td>
             <td>${subdetail.KET}</td>
             <td>${subdetail.UMUR}</td>
+            <td>${subdetail.TINGGAL}</td>
           </tr>`;
       }
 

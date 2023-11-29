@@ -1,6 +1,7 @@
 <?php
 
-define('BASEURL', '');
+define('BASEURL', 'home-qrscanner');
+define('ASSETS_URL', '');
 
 define('DB_HOST', '');
 define('DB_USER', '');

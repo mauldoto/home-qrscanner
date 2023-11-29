@@ -10,7 +10,7 @@
 
         <section class="title-section">
             <div class="col-xs-12 col-sm-12 text-center mb-3">
-                <h4>Scan Data Perumahan</h4>
+                <h4>Verifikasi Data Perumahan</h4>
             </div>
             <div class="col-xs-12 text-center">
                 <div class="form-group">

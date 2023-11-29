@@ -2,96 +2,47 @@
 
 class Database
 {
-	private $host = DB_HOST;
-	private $user = DB_USER;
-	private $pass = DB_PASS;
-	private $service = DB_SERVICE;
+	protected $host = DB_HOST;
+	protected $user = DB_USER;
+	protected $pass = DB_PASS;
+	protected $service = DB_SERVICE;
 
-	private $dbh;
-	private $stmt;
+	protected $dbh;
+	protected $stmt;
 
 	public function __construct()
 	{
-		$tsn = 'oci:dbname=//' . $this->host . '/' . $this->service;
-
-		$option = [
-			PDO::ATTR_PERSISTENT => true,
-			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-		];
-
 		try {
-			$this->dbh = new PDO($tsn, $this->user, $this->pass, $option);
-		} catch (PDOException $e) {
+			$this->dbh = oci_connect($this->user, $this->pass, $this->host . '/' . $this->service);
+		} catch (\Throwable $e) {
+			$msg = oci_error();
 			die($e->getMessage());
 		}
-	}
 
+		oci_set_client_info($this->dbh, 'Administrator');
+	}
 
 	public function query($query)
 	{
-		$this->stmt = $this->dbh->prepare($query);
-	}
-
-	public function bind($param, $value, $type = null)
-	{
-		if (is_null($type)) {
-			switch (true) {
-				case is_int($value):
-					$type = PDO::PARAM_INT;
-					break;
-				case is_bool($value):
-					$type = PDO::PARAM_BOOL;
-					break;
-				case is_null($value):
-					$type = PDO::PARAM_NULL;
-					break;
-				default:
-					$type = PDO::PARAM_STR;
-			}
-		}
-
-		$this->stmt->bindValue($param, $value, $type);
-	}
-
-	public function execute()
-	{
-		$this->stmt->execute();
-	}
-
-	public function executeOracle($data)
-	{
-		$this->stmt->execute($data);
+		$this->stmt = oci_parse($this->dbh, $query);
 	}
 
 	public function resultSet()
 	{
-		$this->execute();
-		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+		oci_execute($this->stmt);
+		oci_fetch_all($this->stmt, $res, 0, -1, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+
+		return $res;
 	}
 
-	public function single()
+	public function __destruct()
 	{
-		$this->execute();
-		return $this->stmt->fetch(PDO::FETCH_ASSOC);
-	}
+		if ($this->stmt) {
+			oci_free_statement($this->stmt);
+		}
 
-	public function rowCount()
-	{
-		return $this->stmt->rowCount();
-	}
-
-	public function beginTransaction()
-	{
-		return $this->dbh->beginTransaction();
-	}
-
-	public function rollback()
-	{
-		return $this->dbh->rollBack();
-	}
-
-	public function commit()
-	{
-		return $this->dbh->commit();
+		if ($this->dbh) {
+			oci_close($this->dbh);
+		}
 	}
 }
